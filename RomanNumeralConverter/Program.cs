@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RomanNumeralConverter
+namespace RomanNumeral
 {
     class Program
     {
