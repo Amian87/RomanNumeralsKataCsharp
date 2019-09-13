@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RomanNumeralsKata
+namespace RomanNumerals
 {
     public class Class1
     {
