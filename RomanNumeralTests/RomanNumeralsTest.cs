@@ -23,6 +23,7 @@ namespace RomanNumeralTests
         [TestCase("VII", 7)]
         [TestCase("VIII", 8)]
         [TestCase("IX", 9)]
+        [TestCase("MMDCCLI", 2751)]
         public void ConvertToRomanNumeral(string roman, int arabic)
         {
             Assert.AreEqual(roman, rn.ConvertToRoman(arabic));

@@ -1,40 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace RomanNumeralsKata
 {
     public class RomanNumerals
     {
+        static Dictionary<int, string> arabicToRoman = new Dictionary<int, string>
+    {
+        { 1000, "M" },
+        { 900, "CM" },
+        { 500, "D" },
+        { 400, "CD" },
+        { 100, "C" },
+        { 90, "XC" },
+        { 50, "L" },
+        { 40, "XL" },
+        { 10, "X" },
+        { 9, "IX" },
+        { 6, "VI" },
+        { 5, "V" },
+        { 4, "IV" },
+        { 1, "I" }
+    };
+
         public string ConvertToRoman(int arabic)
         {
-            StringBuilder sb = new StringBuilder();
+            string roman = string.Empty;
 
-            int remaining = arabic;
-
-            if(remaining == 9)
+            foreach (int value in arabicToRoman.Keys)
             {
-                sb.Append("IX");
-                remaining -= 9;
-            }
-            if(remaining >= 5)
-            {
-                sb.Append("V");
-                remaining -= 5;
-            }
-            if(remaining == 4)
-            {
-                sb.Append("IV");
-                remaining -= 4;
+                while (arabic >= value)
+                {
+                    roman += arabicToRoman[value];
+                    arabic -= value;
+                }
             }
 
-            for(int i = 0; i < remaining; i++)
-            {
-                sb.Append("I");
-            }
-
-            return sb.ToString();
-            
+            return roman;
         }
-        
+
     }
 }
